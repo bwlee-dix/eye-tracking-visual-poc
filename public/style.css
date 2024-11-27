@@ -8,13 +8,17 @@ body {
   justify-content: center;
   height: 100vh;
   background-color: #f4f4f4;
+  overflow: hidden;
 }
 
 #info {
   position: absolute;
   top: 0;
+  width: 100%;
   text-align: center;
-  /* margin-bottom: 20px; */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 0;
+  z-index: 10;
 }
 
 #overlay {
@@ -23,4 +27,39 @@ body {
   top: 20%;
   width: 100vw;
   height: 80vh;
+  pointer-events: none;
+}
+
+#heatmap-container {
+  position: absolute;
+  top: 20%;
+  width: 100vw;
+  height: 80vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#start-btn {
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#stop-btn {
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #f44336; /* Stop 버튼은 빨간색 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#status {
+  margin-top: 10px;
+  color: #666;
 }

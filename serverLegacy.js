@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
 
 const app = express();
 const PORT = 3000;
@@ -11,26 +9,12 @@ const PORT = 3000;
 app.use(cors()); // Cross-Origin Resource Sharing 활성화
 app.use(bodyParser.json()); // JSON 형식 데이터 처리
 
-// 데이터 저장 디렉토리 생성
-const dataDir = path.join(__dirname, "gaze-data");
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir);
-}
-
 // 데이터 수신 엔드포인트
 app.post("/data", (req, res) => {
   const { x, y, timestamp } = req.body;
 
   // 받은 데이터를 콘솔에 출력
   console.log(`Gaze Data Received: X=${x}, Y=${y}, Timestamp=${timestamp}`);
-
-  // 데이터를 파일에 저장 (선택사항)
-  const filename = path.join(dataDir, `gaze-${new Date().toISOString().replace(/:/g, "-")}.json`);
-  try {
-    fs.writeFileSync(filename, JSON.stringify({ x, y, timestamp }, null, 2));
-  } catch (error) {
-    console.error("Error saving gaze data:", error);
-  }
 
   // 응답 반환
   res.status(200).json({ message: "Data received successfully" });
