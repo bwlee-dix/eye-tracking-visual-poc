@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eye Tracking PoC</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="info">
+      <h1>Eye Tracking PoC</h1>
+      <p>카메라를 활성화하려면 "Start Tracking" 버튼을 클릭하세요!</p>
+      <button id="start-btn">Start Tracking</button>
+      <p id="status"></p>
+    </div>
+
+    <!-- 캔버스를 통해 눈의 움직임을 시각화 -->
+    <canvas id="overlay"></canvas>
+
+    <!-- WebGazer.js 라이브러리 -->
+    <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
